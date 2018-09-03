@@ -82,12 +82,18 @@ def main():
     i=0
     matriz_centroides = np.array(matriz_centroides)
 
-    #print (a)
+    informacion_clusters =[]
 
-    #print(matriz_datos)
-    #print("--------------")
-    #print(X)
-    #print(matriz_centroides)
+    for i in range(len(matriz_centroides)):
+        informacion_clusters.append([0]*2)
+        #una columna de numero de cluster y otra de dependencia de cluster
+        informacion_clusters[i][0]= int(matriz_centroides[i][2])
+        informacion_clusters[i][1]= -1
+        #-1 es equivalente a null para saber que no depende de nada
+
+    #print(informacion_clusters)
+
+
     colors = ["g.", "r.", "b.", "y.", "c."]
     colors_scatter = ["green", "red", "blue", "yellow", "cyan"]
 
@@ -123,21 +129,29 @@ def main():
     matriz_centroides, matriz_datos, arbol_centroide = single_link_closest(matriz_centroides, matriz_datos)
     for i in range(len(arbol_centroide)):
         for j in range(len(arbol_centroide)):
-            #opto pintar con el color del primero, creo q seria verde, o rojo pq seria el ultimo
-            # de los dos que pasaria por este for
             if arbol_centroide[i][0]==arbol_centroide[j][1] and arbol_centroide[j][0]==arbol_centroide[i][1]:
-                print("pensando ")
+                #agregar un cluster padre
+                informacion_clusters.append([0]*2)
+                informacion_clusters[len(informacion_clusters) - 1][0]= len(informacion_clusters) - 1
+                informacion_clusters[len(informacion_clusters) - 1][1]=-1
+                informacion_clusters[i][1] = len(informacion_clusters) - 1
+                informacion_clusters[j][1] = len(informacion_clusters) - 1
 
-""" 
-matriz_datos = np.insert(matriz_datos, 2,np.zeros((1,len(matriz_datos))),axis=1)
+    ##a la matriz de datos hacerla dependiente del ultimo clustering si es distinto a -1
+    print(matriz_datos)
+    for i in range(len(matriz_datos)):
+        if informacion_clusters[int(matriz_datos[i][2])][1]!=-1:
+            matriz_datos[i][2]= informacion_clusters[int(matriz_datos[i][2])][1]
+    print("------------")
+    print(matriz_datos)
+    print(arbol_centroide)
+
 
 
     for i in range(len(matriz_datos)):
-        centroide = calculo_distancia_minima(matriz_centroides, matriz_datos[i])
-        matriz_datos[i][2]=centroide
-        plt.plot(matriz_datos[i][0], matriz_datos[i][1], colors[int(centroide)], markersize=10)
-"""
+        plt.plot(matriz_datos[i][0], matriz_datos[i][1], colors[int(matriz_datos[i][2])], markersize=10)
 
-
-    print(arbol_centroide)
+    plt.plot(0, 0, colors[0], marker="")
+    plt.plot(50, 50, colors[0], marker="")
+    plt.show()
 main()
