@@ -55,15 +55,15 @@ class Lista_Cluster:
         return len(self.contenedor)
 
     def buscar_cluster_por_id(self, id_buscado):
-        indice = -1
+        cluster = -1
         i = 0
         no_salir = False
         while (i < self.tamanio_contenedor() and not (no_salir)):
-            if self.contenedor[i] == id_buscado:
-                indice = i
+            if self.contenedor[i].id_cluster == id_buscado:
+                cluster = self.contenedor[i]
                 no_salir = True
             i += 1
-        return indice
+        return cluster
     def armar_cluster(self):
         distancia_minima = -1
         cluster1 = -1
