@@ -24,35 +24,62 @@ def calculo_distancia_minima(matriz_centroides, matriz_datos):
     return centroide
 calculo_distancia_minima
 
-def calculo_distancia_minima_sin_mismo(matriz_centroides, matriz_datos, uno_mismo):
+def calculo_distancia_minima_sin_mismo(matriz_datos, fila_actual):
     #print("mc: ", matriz_centroides, "\t md: ", matriz_datos)
     distancia = -5
     centroide = -5
+    cluster = 0;
     for i in range (len(matriz_datos)):
-        if matriz_datos[i][2]!=uno_mismo:
-            distancia_calculada = (((matriz_centroides[0]-matriz_datos[i][0])**2)+((matriz_centroides[1]-matriz_datos[i][1])**2))**(1/2)
+        if fila_actual[2]!=matriz_datos[i][2]:
+            distancia_calculada = (((fila_actual[0]-matriz_datos[i][0])**2)+((fila_actual[1]-matriz_datos[i][1])**2))**(1/2)
             if distancia==-5:
                 distancia = distancia_calculada
                 centroide = matriz_datos[i][2]
             else:
                 if distancia_calculada<distancia:
                     distancia = distancia_calculada
-                    centroide = matriz_datos[i][2]
-    return centroide
+                    cluster = matriz_datos[i][2]
+    return (cluster, distancia)
 calculo_distancia_minima_sin_mismo
 
-def single_link_closest(matriz_centroides, matriz_datos):
-
+def single_link_closest(matriz_centroides, matriz_datos, informacion_clusters):
+#comparar un punto con todos los demas que sean de otro cluster
+#ir guardando la distancia y elegir la menor entre todos los clusters
+#
     arbol_centroide = []
+    j=0
+    matriz_datos = np.insert(matriz_datos, 3,np.zeros((1,len(matriz_datos))),axis=1)
+    for i in range(len(matriz_datos)):
+        #if informacion_clusters[i][1]==-1:.
+        matriz_datos[i][2], matriz_datos[i][3] = calculo_distancia_minima_sin_mismo(matriz_datos, matriz_datos[i])
 
-    for i in range(len(matriz_centroides)):
-        distancia_minima = calculo_distancia_minima_sin_mismo(matriz_centroides[i], matriz_datos,i)
+    distancia=0
+    clus=0
+    for i in range(len(informacion_clusters)):
+        for j in range (len(matriz_datos)):
+            if matriz_datos[j][2]==informacion_clusters[i][0]:
+                if distancia==0:
+                    clus = matriz_datos[j][3]
+                else:
+                    if matriz_datos[j][3]<distancia:
+                        distancia = matriz_datos[j][3]
+                        clus = matriz_datos[j][2]
 
+        # el arbol debe tener, numero de cluster al q pertenece y numero con el que se deberia agrupar
         arbol_centroide.append([0] * 2)
-        arbol_centroide[i][0] = int(i)
-        arbol_centroide[i][1] = int(distancia_minima)
+        arbol_centroide[i][0] = int(informacion_clusters[i][0])
+        arbol_centroide[i][1] = int(clus)
     return (matriz_centroides, matriz_datos, arbol_centroide)
 single_link_closest
+
+def no_dependencia_repetida(dependencia_repetida, index):
+    ret = True
+    if len(dependencia_repetida)>0:
+        for i in range(len(dependencia_repetida)):
+            if index==dependencia_repetida[i]:
+                ret = False
+    return ret
+no_dependencia_repetida
 
 def main():
     datos = open("archivo.csv", "r")
@@ -126,32 +153,63 @@ def main():
     #######Single Link
     #al arbol se lo podria meter directamente en la matriz de centroide asi se reutiliza siempre
     #hasta q quede en una jerarquia
-    matriz_centroides, matriz_datos, arbol_centroide = single_link_closest(matriz_centroides, matriz_datos)
-    for i in range(len(arbol_centroide)):
-        for j in range(len(arbol_centroide)):
-            if arbol_centroide[i][0]==arbol_centroide[j][1] and arbol_centroide[j][0]==arbol_centroide[i][1]:
-                #agregar un cluster padre
-                informacion_clusters.append([0]*2)
-                informacion_clusters[len(informacion_clusters) - 1][0]= len(informacion_clusters) - 1
-                informacion_clusters[len(informacion_clusters) - 1][1]=-1
-                informacion_clusters[i][1] = len(informacion_clusters) - 1
-                informacion_clusters[j][1] = len(informacion_clusters) - 1
+    matriz_centroides, matriz_datos, arbol_centroide = single_link_closest(matriz_centroides, matriz_datos, informacion_clusters)
 
-    ##a la matriz de datos hacerla dependiente del ultimo clustering si es distinto a -1
-    print(matriz_datos)
-    for i in range(len(matriz_datos)):
-        if informacion_clusters[int(matriz_datos[i][2])][1]!=-1:
-            matriz_datos[i][2]= informacion_clusters[int(matriz_datos[i][2])][1]
-    print("------------")
-    print(matriz_datos)
-    print(arbol_centroide)
+    #mientras haya mas de uno con -1 en informacion_cluster
+    band = 1
+    while band:
+        dependencia_repetida = []
+        for i in range(len(arbol_centroide)):
+            for j in range(len(arbol_centroide)):
+                if arbol_centroide[i][0]==arbol_centroide[j][1] and arbol_centroide[j][0]==arbol_centroide[i][1]:
+                    if no_dependencia_repetida(dependencia_repetida, i):
+                        #agregar un cluster padre y no hay que mirar arriba cuando se repita pq van a ser dos
+                        informacion_clusters.append([0]*2)
+                        informacion_clusters[len(informacion_clusters) - 1][0]= len(informacion_clusters) - 1
+                        informacion_clusters[len(informacion_clusters) - 1][1]=-1
+                        informacion_clusters[i][1] = len(informacion_clusters) - 1
+                        informacion_clusters[j][1] = len(informacion_clusters) - 1
+                        dependencia_repetida.append([0]*1)
+                        dependencia_repetida[len(dependencia_repetida) - 1] = j
+                        ##ESTOY HACIENDO MAL, PQ COMPARO CON EL PUNTO, DEBO COMPARAR CON LOS PUNTOS MAS CERCANOS
+                        ##ENTRE PARES DE PUNTOS DE CONJUNTOS DISTINTOS
+
+        ##a la matriz de datos hacerla dependiente del ultimo clustering si es distinto a -1
+        #print(matriz_datos)
+        for i in range(len(matriz_datos)):
+            if informacion_clusters[int(matriz_datos[i][2])][1]!=-1:
+                matriz_datos[i][2]= informacion_clusters[int(matriz_datos[i][2])][1]
+        #print(matriz_datos)
+        print("arbol centroide: ",arbol_centroide)
+        print("------------")
+        print("info clust: ",informacion_clusters)
 
 
 
-    for i in range(len(matriz_datos)):
-        plt.plot(matriz_datos[i][0], matriz_datos[i][1], colors[int(matriz_datos[i][2])], markersize=10)
+        for i in range(len(matriz_datos)):
+            color=int(matriz_datos[i][2])
+            if int(matriz_datos[i][2])>= len(colors):
+                color = len(colors)- matriz_datos[i][2]
+                #ver bien esto del color para q no se repita un color ya usado
+            plt.plot(matriz_datos[i][0], matriz_datos[i][1], colors[color], markersize=10)
 
-    plt.plot(0, 0, colors[0], marker="")
-    plt.plot(50, 50, colors[0], marker="")
-    plt.show()
+        plt.plot(0, 0, colors[0], marker="")
+        plt.plot(50, 50, colors[0], marker="")
+        plt.show()
+        cont=0
+        for i in range(len(informacion_clusters)):
+            if informacion_clusters[i][1]==-1:
+                cont=cont+1
+                #print(cont)
+        if cont <= 1:
+            band = 0
+        #print(band)
+
+        matriz_centroides, matriz_datos, arbol_centroide = single_link_closest(matriz_centroides, matriz_datos,
+                                                                               informacion_clusters)
+        print("---------\n\n")
+        #print(arbol_centroide)
+        #print("------------")
+        #print(informacion_clusters)
+
 main()
