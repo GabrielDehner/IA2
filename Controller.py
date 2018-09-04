@@ -38,6 +38,30 @@ def aniadir_puntos_de_cluster(x, cluster):
     return x
 aniadir_puntos_de_cluster
 
+def habilitar_colores_desocupados(color, colors):
+    i=0
+    no_salir = False
+    while(i < len(colors) and not no_salir):
+        if colors[i][0]== color and i>0:
+            colors[i][1]= "T"
+            no_salir = True
+        i+=1
+    return colors
+
+habilitar_colores_desocupados
+
+def terminar(contenedor):
+    cont=0
+    retorno = False
+    for i in range(len(contenedor)):
+        if contenedor[i].habilitado:
+            cont+=1
+
+    if cont <= 1:
+        retorno = True
+    return retorno
+terminar
+
 def main():
     colors = [["g.", "F"], ["r.", "T"], ["b.", "T"], ["y.", "T"], ["c.", "T"]]
     datos = open("archivo.csv", "r")
@@ -58,7 +82,7 @@ def main():
     dibujar_clusters(lista_clusters.contenedor)
     h=0
     print(colors)
-    while(h<4):
+    while(not terminar(lista_clusters.contenedor)):
         cluster1, cluster2, distancia_minima = lista_clusters.armar_cluster()
         #Crear un nuevo cluster con id correspondiente a len(lista_cluster,contenedor)
         #el color deberia se una matriz con usados
@@ -79,10 +103,19 @@ def main():
         lista_clusters.buscar_cluster_por_id(cluster1).cluster_dependiente = x.id_cluster
         lista_clusters.buscar_cluster_por_id(cluster2).cluster_dependiente = x.id_cluster
 
+        #habilitar colores de los clusters deshabilitados
+        colors = habilitar_colores_desocupados(lista_clusters.buscar_cluster_por_id(cluster1).color, colors)
+        colors = habilitar_colores_desocupados(lista_clusters.buscar_cluster_por_id(cluster2).color, colors)
+
+
+
+
+
         dibujar_clusters(lista_clusters.contenedor)
         #cluster1, cluster2, distancia_minima = lista_clusters.armar_cluster()
         #print(cluster1, "  ", cluster2, " dist: ", distancia_minima)
         print (colors)
         h+=1
+
 
 main()

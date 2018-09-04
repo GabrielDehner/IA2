@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71dee0b6-2b26-4264-8803-9cabb81ae59d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Clases.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clases.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/IA2TP$Controller.coverage" NAME="Controller Coverage Results" MODIFIED="1536075057494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IA2TP$Controller.coverage" NAME="Controller Coverage Results" MODIFIED="1536076303476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clustering.coverage" NAME="clustering Coverage Results" MODIFIED="1536029929468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$pruebas.coverage" NAME="pruebas Coverage Results" MODIFIED="1535938883213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clusJerarquicoPrueba.coverage" NAME="clusJerarquicoPrueba Coverage Results" MODIFIED="1535938969304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -42,13 +41,13 @@
         <counts>
           <entry key="Python Console" value="29" />
           <entry key="dummy" value="8" />
-          <entry key="py" value="8695" />
+          <entry key="py" value="9060" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="8724" />
+          <entry key="Python" value="9089" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -64,15 +63,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="227">
+              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1536075051856" expanded="true" signature="202:636" ph="..." />
-                <marker date="1536075051856" expanded="true" signature="679:966" ph="..." />
-                <marker date="1536075051856" expanded="true" signature="1022:1178" ph="..." />
-                <marker date="1536075051856" expanded="true" signature="1022:1191" ph="..." />
-                <marker date="1536075051856" expanded="true" signature="1022:1218" ph="..." />
+                <marker date="1536076297207" expanded="true" signature="202:636" ph="..." />
+                <marker date="1536076297207" expanded="true" signature="679:966" ph="..." />
+                <marker date="1536076297207" expanded="true" signature="1022:1178" ph="..." />
+                <marker date="1536076297207" expanded="true" signature="1022:1191" ph="..." />
+                <marker date="1536076297207" expanded="true" signature="1022:1726" ph="..." />
+                <marker date="1536076297207" expanded="true" signature="1529:1716" ph="..." />
               </folding>
             </state>
           </provider>
@@ -320,7 +320,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29307568" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2657005" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.57004833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,7 +334,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.13636364" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.2780303" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -349,7 +349,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Controller.py</url>
-          <line>85</line>
+          <line>117</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -409,15 +409,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state relative-caret-position="227">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1536075051856" expanded="true" signature="202:636" ph="..." />
-            <marker date="1536075051856" expanded="true" signature="679:966" ph="..." />
-            <marker date="1536075051856" expanded="true" signature="1022:1178" ph="..." />
-            <marker date="1536075051856" expanded="true" signature="1022:1191" ph="..." />
-            <marker date="1536075051856" expanded="true" signature="1022:1218" ph="..." />
+            <marker date="1536076297207" expanded="true" signature="202:636" ph="..." />
+            <marker date="1536076297207" expanded="true" signature="679:966" ph="..." />
+            <marker date="1536076297207" expanded="true" signature="1022:1178" ph="..." />
+            <marker date="1536076297207" expanded="true" signature="1022:1191" ph="..." />
+            <marker date="1536076297207" expanded="true" signature="1022:1726" ph="..." />
+            <marker date="1536076297207" expanded="true" signature="1529:1716" ph="..." />
           </folding>
         </state>
       </provider>
