@@ -73,16 +73,17 @@ class Lista_Cluster:
             if self.contenedor[i].habilitado:
                 for j in range(self.tamanio_contenedor()):
                     if(i != j):
-                        id1, id2, distancia_calculada = self.contenedor[i].distancia_minima_entre_clusters(self.contenedor[j])
-                        if distancia_minima == -1:
-                            distancia_minima = distancia_calculada
-                            cluster1 = id1
-                            cluster2 = id2
-                        else:
-                            if distancia_calculada < distancia_minima:
+                        if self.contenedor[j].habilitado:
+                            id1, id2, distancia_calculada = self.contenedor[i].distancia_minima_entre_clusters(self.contenedor[j])
+                            if distancia_minima == -1:
                                 distancia_minima = distancia_calculada
                                 cluster1 = id1
                                 cluster2 = id2
+                            else:
+                                if distancia_calculada < distancia_minima:
+                                    distancia_minima = distancia_calculada
+                                    cluster1 = id1
+                                    cluster2 = id2
         return cluster1, cluster2, distancia_minima
     def imprimir_lista(self):
         for i in range(self.tamanio_contenedor()):

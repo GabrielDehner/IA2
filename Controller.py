@@ -24,10 +24,12 @@ def buscar_color(colors):
     while(i < len(colors) and not no_salir):
         if colors[i][1]== "T":
             color=colors[i][0]
+            colors[i][1]= "F"
+            no_salir = True
         i+=1
     if color=="X":
         color = "g."
-    return color
+    return color, colors
 buscar_color
 
 def aniadir_puntos_de_cluster(x, cluster):
@@ -54,24 +56,33 @@ def main():
 
     colors_scatter = ["green", "red", "blue", "yellow", "cyan"]
     dibujar_clusters(lista_clusters.contenedor)
-    cluster1, cluster2, distancia_minima = lista_clusters.armar_cluster()
-    #Crear un nuevo cluster con id correspondiente a len(lista_cluster,contenedor)
-    #el color deberia se una matriz con usados
-    #aniadir todos los puntos del cluster 1 y 2 al nuevo cluster
-    color_posible = buscar_color(colors)
-    #print (color_posible)
-    x = cl.Cluster(len(lista_clusters.contenedor), color_posible)
+    h=0
+    print(colors)
+    while(h<4):
+        cluster1, cluster2, distancia_minima = lista_clusters.armar_cluster()
+        #Crear un nuevo cluster con id correspondiente a len(lista_cluster,contenedor)
+        #el color deberia se una matriz con usados
+        #aniadir todos los puntos del cluster 1 y 2 al nuevo cluster
+        color_posible, colors = buscar_color(colors)
+        #print (color_posible)
+        x = cl.Cluster(len(lista_clusters.contenedor), color_posible)
 
-    #print(cluster1, "  ", cluster2, " dist: ", distancia_minima)
-    x = aniadir_puntos_de_cluster(x, lista_clusters.buscar_cluster_por_id(cluster1))
-    x = aniadir_puntos_de_cluster(x, lista_clusters.buscar_cluster_por_id(cluster2))
-    #print("hola")
-    #print(x.lista_puntos)
-    #Buscar cluster 1, 2, deshabilitarlos, poner dependencia,
-    lista_clusters.aniadir_cluster(x)
-    lista_clusters.buscar_cluster_por_id(cluster1).habilitado = False
-    lista_clusters.buscar_cluster_por_id(cluster2).habilitado = False
+        print(cluster1, "  ", cluster2, " dist: ", distancia_minima)
+        x = aniadir_puntos_de_cluster(x, lista_clusters.buscar_cluster_por_id(cluster1))
+        x = aniadir_puntos_de_cluster(x, lista_clusters.buscar_cluster_por_id(cluster2))
+        #print("hola")
+        #print(x.lista_puntos)
+        #Buscar cluster 1, 2, deshabilitarlos, poner dependencia,
+        lista_clusters.aniadir_cluster(x)
+        lista_clusters.buscar_cluster_por_id(cluster1).habilitado = False
+        lista_clusters.buscar_cluster_por_id(cluster2).habilitado = False
+        lista_clusters.buscar_cluster_por_id(cluster1).cluster_dependiente = x.id_cluster
+        lista_clusters.buscar_cluster_por_id(cluster2).cluster_dependiente = x.id_cluster
 
-    dibujar_clusters(lista_clusters.contenedor)
+        dibujar_clusters(lista_clusters.contenedor)
+        #cluster1, cluster2, distancia_minima = lista_clusters.armar_cluster()
+        #print(cluster1, "  ", cluster2, " dist: ", distancia_minima)
+        print (colors)
+        h+=1
 
 main()
