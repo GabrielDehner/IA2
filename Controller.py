@@ -3,6 +3,7 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
+from scipy.cluster.hierarchy import dendrogram
 style.use("ggplot")
 
 #x = cl.Cluster(1, 'red').l
@@ -62,6 +63,17 @@ def terminar(contenedor):
     return retorno
 terminar
 
+def matriz_para_dendograma(Z, cluster1, cluster2, distancia_minima):
+    Z.append([0]*4)
+    indice = len(Z) - 1
+    Z[indice][0] = cluster1
+    Z[indice][1] = cluster2
+    Z[indice][2] = distancia_minima
+    Z[indice][3] = 0
+
+    return Z
+matriz_para_dendograma
+
 def main():
     colors = [["g.", "F"], ["r.", "T"], ["b.", "T"], ["y.", "T"], ["c.", "T"]]
     datos = open("archivo.csv", "r")
@@ -74,16 +86,18 @@ def main():
         lista_clusters.aniadir_cluster(x)
         i=i+1
     datos.close()
-
+    Z=[]
     #lista_clusters.imprimir_lista()
 
 
     colors_scatter = ["green", "red", "blue", "yellow", "cyan"]
     dibujar_clusters(lista_clusters.contenedor)
     h=0
+
     print(colors)
     while(not terminar(lista_clusters.contenedor)):
         cluster1, cluster2, distancia_minima = lista_clusters.armar_cluster()
+        Z = matriz_para_dendograma(Z, cluster1, cluster2, distancia_minima)
         #Crear un nuevo cluster con id correspondiente a len(lista_cluster,contenedor)
         #el color deberia se una matriz con usados
         #aniadir todos los puntos del cluster 1 y 2 al nuevo cluster
@@ -117,5 +131,15 @@ def main():
         print (colors)
         h+=1
 
+    plt.ylabel('Distancia')
+    max_d = 20
+    dendrogram(
+        Z,
+        leaf_rotation=90.,
+        leaf_font_size=8.,
+        show_contracted=True
+    )
+    plt.axhline(y=max_d, c='k')
+    plt.show()
 
 main()
