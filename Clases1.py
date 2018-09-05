@@ -26,24 +26,51 @@ class Cluster:
         return indice
 
     def distancia_minima_entre_clusters(self, cluster_x):
-        distancia_min = self.distancia_minima_con_cluster(cluster_x.lista_puntos[0][1], cluster_x.lista_puntos[0][2])
+        coordenadas_cluster_x = []
+        for i in range(len(cluster_x.lista_puntos[0])-1):
+            coordenadas_cluster_x.append([0]*1)
+            coordenadas_cluster_x[i]= cluster_x.lista_puntos[0][i+1]
+        distancia_min = self.distancia_minima_con_cluster(coordenadas_cluster_x)
         for i in range(cluster_x.tamanio_lista()):
-            distancia_calculada = self.distancia_minima_con_cluster(cluster_x.lista_puntos[i][1], cluster_x.lista_puntos[i][2])
+            coordenadas_cluster_x = []
+            for h in range(len(cluster_x.lista_puntos[i]) - 1):
+                coordenadas_cluster_x.append([0] * 1)
+                coordenadas_cluster_x[h] = cluster_x.lista_puntos[0][h + 1]
+
+
+            distancia_calculada = self.distancia_minima_con_cluster(coordenadas_cluster_x)
             if distancia_calculada < distancia_min:
                 distancia_min = distancia_calculada
                 #id1, id2, distancia.. minima en este caso, alla recibe como calculada
         return self.id_cluster, cluster_x.id_cluster, distancia_min
 
-    def distancia_minima_con_cluster(self, x, y):
-        distancia_min = self.distancia_euclidiana(x, y, self.lista_puntos[0][1], self.lista_puntos[0][2])
+    def distancia_minima_con_cluster(self, coordenadas_cluster_x):
+        coordenadas_cluster_propio = []
+        #esto se va a repetir varias veces y arriba tmb
+        for i in range(len(self.lista_puntos[0]) - 1):
+            coordenadas_cluster_propio.append([0] * 1)
+            coordenadas_cluster_propio[i] = self.lista_puntos[0][i + 1]
+
+        distancia_min = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
         for i in range(self.tamanio_lista()):
-            distancia_calculada = self.distancia_euclidiana(x, y, self.lista_puntos[i][1], self.lista_puntos[i][2])
+            coordenadas_cluster_propio = []
+            # esto se va a repetir varias veces y arriba tmb
+            for h in range(len(self.lista_puntos[i]) - 1):
+                coordenadas_cluster_propio.append([0] * 1)
+                coordenadas_cluster_propio[h] = self.lista_puntos[i][h + 1]
+
+####
+            distancia_calculada = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
             if distancia_calculada < distancia_min:
                 distancia_min = distancia_calculada
         return distancia_min
 
-    def distancia_euclidiana(self, x1, y1, x2, y2):
-        return ((x1-x2)**2+(y1-y2)**2)**(1/2)
+    def distancia_euclidiana(self, coordenadas_cluster_x, coordenadas_cluster_propio):
+        resultado = 0
+        for i in range(len(coordenadas_cluster_x)):
+            resultado += (coordenadas_cluster_x[i]- coordenadas_cluster_propio[i])**2
+        resultado = resultado**(1/2)
+        return resultado
 
 class Lista_Cluster:
     def __init__(self, dimension):

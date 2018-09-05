@@ -29,6 +29,9 @@ def dibujar_clusters(contenedor_clusters):
         plt.plot(0, 0, "g.", marker="")
         plt.plot(10, 10, "g.", marker="")
     else:
+        ax.scatter(0, 0, 0, c="green", marker="", s=2)
+        ax.scatter(50, 50, 50, c="green", marker="", s=2)
+
         ax.set_xlabel("X")
         ax.set_ylabel("Y")
         ax.set_zlabel("Z")
@@ -158,6 +161,7 @@ def main():
         #print(colors)
 
     plt.ylabel('Distancia')
+    plt.xlabel('N° Cluster')
     max_d = 20
     dendrogram(
         Z,
