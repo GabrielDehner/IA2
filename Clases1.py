@@ -27,6 +27,7 @@ class Cluster:
 
     def distancia_minima_entre_clusters(self, cluster_x, metodo):
         coordenadas_cluster_x = []
+        promedio_=0
         for i in range(len(cluster_x.lista_puntos[0])-1):
             coordenadas_cluster_x.append([0]*1)
             coordenadas_cluster_x[i]= cluster_x.lista_puntos[0][i+1]
@@ -45,11 +46,24 @@ class Cluster:
                 distancia_calculada = self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
                 if distancia_calculada > distancia_min:
                     distancia_min = distancia_calculada
+
+
+            if metodo == "A":
+                promedio_ += self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
+
+
+
                 #id1, id2, distancia.. minima en este caso, alla recibe como calculada
+        if metodo == "A":
+        #cantidad de puntos de mi cluster por la cantidad de puntos del cluster_x, eso va a ser mi divisor
+        #poner una variable promedio y poner distancia_mi= a eso/ el valor de arriba
+            distancia_min = promedio_/(len(cluster_x.lista_puntos) * len(self.lista_puntos))
+
         return self.id_cluster, cluster_x.id_cluster, distancia_min
 
     def distancia_minima_con_cluster(self, coordenadas_cluster_x, metodo):
         coordenadas_cluster_propio = []
+        promedio_=0
         #esto se va a repetir varias veces y arriba tmb
         for i in range(len(self.lista_puntos[0]) - 1):
             coordenadas_cluster_propio.append([0] * 1)
@@ -74,6 +88,12 @@ class Cluster:
                 if distancia_calculada > distancia_min:
                     distancia_min = distancia_calculada
 
+
+            if metodo == "A":
+                promedio_ += self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
+
+        if metodo == "A":
+            distancia_min = promedio_
 
         return distancia_min
 
