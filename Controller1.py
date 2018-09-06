@@ -2,12 +2,12 @@ import Clases1 as cl
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import style
+#from matplotlib import style
 from mpl_toolkits.mplot3d import Axes3D
 from scipy.cluster.hierarchy import dendrogram
 from matplotlib import pylab
 from pylab import *
-style.use("ggplot")
+#style.use("ggplot")
 
 #x = cl.Cluster(1, 'red').l
 def dibujar_clusters(contenedor_clusters):
@@ -102,8 +102,10 @@ matriz_para_dendograma
 def main():
     colors = None
     ruta = None
-    print("Ingrese si desea en R2 o R3: ")
+    print("Ingrese si desea en R2(2) o R3(3): ")
     dimension = input()
+    print("Ingrese si desea Single (S), Complete(C) o Average (A) link: ")
+    metodo = input()
 
     if dimension == "2":
         colors = [["g.", "F"], ["r.", "T"], ["b.", "T"], ["y.", "T"], ["c.", "T"]]
@@ -114,7 +116,7 @@ def main():
     datos = open(ruta, "r")
     datos_csv = csv.reader(datos)
     i=0
-    lista_clusters = cl.Lista_Cluster(int(dimension))
+    lista_clusters = cl.Lista_Cluster(int(dimension), metodo)
     almacen = []
     for almacen in datos_csv:
         x = cl.Cluster(i, colors[0][0], int(dimension))
@@ -162,7 +164,7 @@ def main():
 
     plt.ylabel('Distancia')
     plt.xlabel('N° Cluster')
-    max_d = 20
+    max_d = int(Z[len(Z)-1][2]+3)
     dendrogram(
         Z,
         leaf_rotation=90.,

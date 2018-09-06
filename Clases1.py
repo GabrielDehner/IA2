@@ -25,26 +25,30 @@ class Cluster:
             i+=1
         return indice
 
-    def distancia_minima_entre_clusters(self, cluster_x):
+    def distancia_minima_entre_clusters(self, cluster_x, metodo):
         coordenadas_cluster_x = []
         for i in range(len(cluster_x.lista_puntos[0])-1):
             coordenadas_cluster_x.append([0]*1)
             coordenadas_cluster_x[i]= cluster_x.lista_puntos[0][i+1]
-        distancia_min = self.distancia_minima_con_cluster(coordenadas_cluster_x)
+        distancia_min = self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
         for i in range(cluster_x.tamanio_lista()):
             coordenadas_cluster_x = []
             for h in range(len(cluster_x.lista_puntos[i]) - 1):
                 coordenadas_cluster_x.append([0] * 1)
                 coordenadas_cluster_x[h] = cluster_x.lista_puntos[0][h + 1]
 
-
-            distancia_calculada = self.distancia_minima_con_cluster(coordenadas_cluster_x)
-            if distancia_calculada < distancia_min:
-                distancia_min = distancia_calculada
+            if metodo == "S":
+                distancia_calculada = self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
+                if distancia_calculada < distancia_min:
+                    distancia_min = distancia_calculada
+            if metodo == "C":
+                distancia_calculada = self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
+                if distancia_calculada > distancia_min:
+                    distancia_min = distancia_calculada
                 #id1, id2, distancia.. minima en este caso, alla recibe como calculada
         return self.id_cluster, cluster_x.id_cluster, distancia_min
 
-    def distancia_minima_con_cluster(self, coordenadas_cluster_x):
+    def distancia_minima_con_cluster(self, coordenadas_cluster_x, metodo):
         coordenadas_cluster_propio = []
         #esto se va a repetir varias veces y arriba tmb
         for i in range(len(self.lista_puntos[0]) - 1):
@@ -53,16 +57,24 @@ class Cluster:
 
         distancia_min = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
         for i in range(self.tamanio_lista()):
+            # esto se va a repetir varias veces y arriba tmb es para soportar 2d o 3d en forma estandar sin importar la dimension
             coordenadas_cluster_propio = []
-            # esto se va a repetir varias veces y arriba tmb
             for h in range(len(self.lista_puntos[i]) - 1):
                 coordenadas_cluster_propio.append([0] * 1)
                 coordenadas_cluster_propio[h] = self.lista_puntos[i][h + 1]
 
 ####
-            distancia_calculada = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
-            if distancia_calculada < distancia_min:
-                distancia_min = distancia_calculada
+            if metodo == "S":
+                distancia_calculada = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
+                if distancia_calculada < distancia_min:
+                    distancia_min = distancia_calculada
+
+            if metodo == "C":
+                distancia_calculada = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
+                if distancia_calculada > distancia_min:
+                    distancia_min = distancia_calculada
+
+
         return distancia_min
 
     def distancia_euclidiana(self, coordenadas_cluster_x, coordenadas_cluster_propio):
@@ -73,9 +85,10 @@ class Cluster:
         return resultado
 
 class Lista_Cluster:
-    def __init__(self, dimension):
+    def __init__(self, dimension, metodo):
         self.contenedor = []
         self.dimension = dimension
+        self.metodo = metodo
     def aniadir_cluster(self, cluster):
         self.contenedor.append([0] * 1)
         indice = self.tamanio_contenedor() - 1
@@ -103,7 +116,7 @@ class Lista_Cluster:
                 for j in range(self.tamanio_contenedor()):
                     if(i != j):
                         if self.contenedor[j].habilitado:
-                            id1, id2, distancia_calculada = self.contenedor[i].distancia_minima_entre_clusters(self.contenedor[j])
+                            id1, id2, distancia_calculada = self.contenedor[i].distancia_minima_entre_clusters(self.contenedor[j], self.metodo)
                             if distancia_minima == -1:
                                 distancia_minima = distancia_calculada
                                 cluster1 = id1
