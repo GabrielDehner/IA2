@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71dee0b6-2b26-4264-8803-9cabb81ae59d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~lock.archivo3d.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clases.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clases.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clases1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clases1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controller1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archivo2d.csv" beforeDir="false" afterPath="$PROJECT_DIR$/archivo2d.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,48 +17,55 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/IA2TP$Controller.coverage" NAME="Controller Coverage Results" MODIFIED="1536114762124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IA2TP$VisualController.coverage" NAME="VisualController Coverage Results" MODIFIED="1536183871852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IA2TP$VisualController.coverage" NAME="VisualController Coverage Results" MODIFIED="1537147904546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clustering.coverage" NAME="clustering Coverage Results" MODIFIED="1536029929468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$pruebas.coverage" NAME="pruebas Coverage Results" MODIFIED="1535938883213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clusteringMethods.coverage" NAME="clusteringMethods Coverage Results" MODIFIED="1536114553966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clusJerarquicoPrueba.coverage" NAME="clusJerarquicoPrueba Coverage Results" MODIFIED="1536110778089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IA2TP$Controller1.coverage" NAME="Controller1 Coverage Results" MODIFIED="1536205954165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IA2TP$Controller1.coverage" NAME="Controller1 Coverage Results" MODIFIED="1537892915156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="2052525589">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.27" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.32" value="2" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.7" value="3" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="28" />
+          <entry key="py" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="28" />
+          <entry key="Python" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="49" />
           <entry key="dummy" value="8" />
-          <entry key="py" value="12444" />
+          <entry key="py" value="13338" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="12493" />
+          <entry key="Python" value="13387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -61,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controller1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="134" column="67" selection-start-line="134" selection-start-column="67" selection-end-line="134" selection-end-column="67" />
+            <state relative-caret-position="73">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -73,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Clases1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+            <state relative-caret-position="245">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
         </entry>
@@ -91,6 +103,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>print</find>
+      <find>cl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,11 +117,11 @@
         <option value="$PROJECT_DIR$/venv/clusteringMethods.py" />
         <option value="$PROJECT_DIR$/cluster.py" />
         <option value="$PROJECT_DIR$/Cluster.py" />
-        <option value="$PROJECT_DIR$/Clases.py" />
         <option value="$PROJECT_DIR$/clusJerarquicoPrueba.py" />
         <option value="$PROJECT_DIR$/clusteringMethods.py" />
         <option value="$PROJECT_DIR$/Controller.py" />
         <option value="$PROJECT_DIR$/VisualController.py" />
+        <option value="$PROJECT_DIR$/Clases.py" />
         <option value="$PROJECT_DIR$/Controller1.py" />
         <option value="$PROJECT_DIR$/Clases1.py" />
       </list>
@@ -121,15 +134,16 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="683" />
-    <option name="width" value="683" />
-    <option name="height" value="744" />
+    <option name="x" value="-1" />
+    <option name="width" value="685" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,7 +155,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,17 +327,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1372" height="746" extended-state="6" />
+    <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18333334" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.115558915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" x="23" y="42" width="1343" height="643" id="SciView" order="3" show_stripe_button="false" type="FLOATING" weight="0.5143939" />
+      <window_info content_ui="combo" x="1" y="41" width="1364" height="700" id="SciView" order="3" type="WINDOWED" visible="true" weight="0.35725075" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924242" visible="true" weight="0.4041868" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.57004833" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924242" visible="true" weight="0.35818475" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.49594814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
@@ -346,17 +359,23 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Clases1.py</url>
+          <line>146</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/clusteringMethods.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/clusteringMethods.py" />
     <entry file="file://$PROJECT_DIR$/clusteringMethods.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -367,26 +386,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clases.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" lean-forward="true" selection-end-line="89" selection-end-column="138" />
-          <folding>
-            <marker date="1536074835478" expanded="true" signature="14:19" ph="..." />
-            <marker date="1536074835478" expanded="true" signature="916:1478" ph="..." />
-            <marker date="1536074835478" expanded="true" signature="1523:1532" ph="..." />
-            <marker date="1536074835478" expanded="true" signature="2045:2050" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clusJerarquicoPrueba.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -394,14 +397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="144" column="8" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="160" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1535994966530" expanded="true" signature="258:263" ph="..." />
-            <marker date="1535994966530" expanded="true" signature="258:837" ph="..." />
-            <marker date="1535994966530" expanded="true" signature="1701:2908" ph="..." />
-            <marker date="1535994966530" expanded="true" signature="2986:3179" ph="..." />
-            <marker date="1535994966530" expanded="true" signature="2986:3204" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -416,33 +411,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="142" column="14" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="142" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1536114530589" expanded="true" signature="249:683" ph="..." />
-            <marker date="1536114530589" expanded="true" signature="726:1013" ph="..." />
-            <marker date="1536114530589" expanded="true" signature="1069:1225" ph="..." />
-            <marker date="1536114530589" expanded="true" signature="1069:1238" ph="..." />
-            <marker date="1536114530589" expanded="true" signature="1069:2037" ph="..." />
-            <marker date="1536114530589" expanded="true" signature="1576:1763" ph="..." />
-            <marker date="1536114530589" expanded="true" signature="1841:2013" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VisualController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="196">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="134" column="67" selection-start-line="134" selection-start-column="67" selection-end-line="134" selection-end-column="67" />
+        <state relative-caret-position="73">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -451,8 +440,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Clases1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+        <state relative-caret-position="245">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>

@@ -25,18 +25,21 @@ class Cluster:
             i+=1
         return indice
 
+    #evalua distancia entre clusters
     def distancia_minima_entre_clusters(self, cluster_x, metodo):
         coordenadas_cluster_x = []
         promedio_=0
+        #primer punto, el 0, del cluster x para comparar contra algo el primer if del bucle
         for i in range(len(cluster_x.lista_puntos[0])-1):
             coordenadas_cluster_x.append([0]*1)
             coordenadas_cluster_x[i]= cluster_x.lista_puntos[0][i+1]
         distancia_min = self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
+
         for i in range(cluster_x.tamanio_lista()):
             coordenadas_cluster_x = []
             for h in range(len(cluster_x.lista_puntos[i]) - 1):
                 coordenadas_cluster_x.append([0] * 1)
-                coordenadas_cluster_x[h] = cluster_x.lista_puntos[0][h + 1]
+                coordenadas_cluster_x[h] = cluster_x.lista_puntos[i][h + 1]
 
             if metodo == "S":
                 distancia_calculada = self.distancia_minima_con_cluster(coordenadas_cluster_x, metodo)
@@ -61,10 +64,13 @@ class Cluster:
 
         return self.id_cluster, cluster_x.id_cluster, distancia_min
 
+    #este metodo calcula la distancia de las coordenadas pasadas de un punto del cluster x, contra toodo el cluster o sea todos los puntos del cluster
     def distancia_minima_con_cluster(self, coordenadas_cluster_x, metodo):
         coordenadas_cluster_propio = []
         promedio_=0
         #esto se va a repetir varias veces y arriba tmb
+        #coordenadas_cluster tiene en el caso de abajo las coordenadas del punto 0. Esto se hace con bucle para q no sea estatico al tener 2 dimensiones
+        #R2 y R3 segun elija el usuario, se hace uso del punto 0 para la primera iteracion para tener contra que comparar
         for i in range(len(self.lista_puntos[0]) - 1):
             coordenadas_cluster_propio.append([0] * 1)
             coordenadas_cluster_propio[i] = self.lista_puntos[0][i + 1]
@@ -84,6 +90,7 @@ class Cluster:
                     distancia_min = distancia_calculada
 
             if metodo == "C":
+                #esta linea se repite, puede eliminarse
                 distancia_calculada = self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
                 if distancia_calculada > distancia_min:
                     distancia_min = distancia_calculada
@@ -93,6 +100,7 @@ class Cluster:
                 promedio_ += self.distancia_euclidiana(coordenadas_cluster_x, coordenadas_cluster_propio)
 
         if metodo == "A":
+            #este if no es necesario, se puede resolver arriba
             distancia_min = promedio_
 
         return distancia_min

@@ -24,14 +24,14 @@ class Cluster:
             i+=1
         return indice
 
-    def distancia_minima_entre_clusters(self, cluster_x):
-        distancia_min = self.distancia_minima_con_cluster(cluster_x.lista_puntos[0][1], cluster_x.lista_puntos[0][2])
-        for i in range(cluster_x.tamanio_lista()):
-            distancia_calculada = self.distancia_minima_con_cluster(cluster_x.lista_puntos[i][1], cluster_x.lista_puntos[i][2])
-            if distancia_calculada < distancia_min:
-                distancia_min = distancia_calculada
-                #id1, id2, distancia.. minima en este caso, alla recibe como calculada
-        return self.id_cluster, cluster_x.id_cluster, distancia_min
+    #def distancia_minima_entre_clusters(self, cluster_x):
+     #   distancia_min = self.distancia_minima_con_cluster(cluster_x.lista_puntos[0][1], cluster_x.lista_puntos[0][2])
+      #  for i in range(cluster_x.tamanio_lista()):
+       #     distancia_calculada = self.distancia_minima_con_cluster(cluster_x.lista_puntos[i][1], cluster_x.lista_puntos[i][2])
+        #    if distancia_calculada < distancia_min:
+         #       distancia_min = distancia_calculada
+          #      #id1, id2, distancia.. minima en este caso, alla recibe como calculada
+       # return self.id_cluster, cluster_x.id_cluster, distancia_min
 
     def distancia_minima_con_cluster(self, x, y):
         distancia_min = self.distancia_euclidiana(x, y, self.lista_puntos[0][1], self.lista_puntos[0][2])
