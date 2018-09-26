@@ -144,10 +144,10 @@ def ejecutar_metodos_s_c_a(lista_clusters, Z, dimension, colors):
     plt.axhline(y=max_d, c='k')
     plt.show()"""
     lista_clusters.imprimir_lista()
-    return lista_clusters
+    return lista_clusters, Z
 ejecutar_metodos_s_c_a
 
-def graficar_clusters(tamanio_inicial_clusters, tamanio_deseado, contenedor):
+def graficar_cantidad_clusters(tamanio_inicial_clusters, tamanio_deseado, contenedor):
 
     #el tamanio inicial -1= todos los individuales pj 10
     #si quiero 6, son  10-6=4 iteraciones se necesitan
@@ -159,10 +159,10 @@ def graficar_clusters(tamanio_inicial_clusters, tamanio_deseado, contenedor):
     cantidad_iteraciones = tamanio_inicial_clusters - tamanio_deseado
 
     tope = tamanio_inicial_clusters + cantidad_iteraciones
-    print("cant it ", cantidad_iteraciones)
-    print("tope ", tope)
-    print("tam des ", tamanio_deseado)
-    print("tam ini ", tamanio_inicial_clusters)
+    #print("cant it ", cantidad_iteraciones)
+    #print("tope ", tope)
+    #print("tam des ", tamanio_deseado)
+    #print("tam ini ", tamanio_inicial_clusters)
     for i in range(len(contenedor)):
         if i < tope:
             contenedor[i].habilitado = True
@@ -183,7 +183,42 @@ def graficar_clusters(tamanio_inicial_clusters, tamanio_deseado, contenedor):
             print(contenedor[i].id_cluster)
 
 
-graficar_clusters
+graficar_cantidad_clusters
+
+def graficar_cantidad_elementos(cantidad_elementos, contenedor):
+    salir = False
+    for i in range(len(contenedor)):
+        contenedor[i].habilitado = False
+    i=0
+    while(i < len(contenedor) and not(salir)):
+        if len(contenedor[i].lista_puntos) <= cantidad_elementos:
+            contenedor[i].habilitado = True
+        else:
+            salir = True
+        i+=1
+
+
+    dibujar_clusters(contenedor)
+    show()
+
+
+graficar_cantidad_elementos
+
+
+def graficar_dendograma(Z):
+    plt.ylabel('Distancia')
+    plt.xlabel('N° Cluster')
+    max_d = int(Z[len(Z) - 1][2] + 3)
+    dendrogram(
+        Z,
+        leaf_rotation=90.,
+        leaf_font_size=8.,
+        show_contracted=True
+    )
+    plt.axhline(y=max_d, c='k')
+    plt.show()
+graficar_dendograma
+
 
 def main():
     colors = None
@@ -230,11 +265,11 @@ def main():
 
     colors_scatter = ["green", "red", "blue", "yellow", "cyan"]
     print("-----------------------------------------------------------------------------------")
-    lista_clusters_single = ejecutar_metodos_s_c_a(lista_clusters_single, Z_single, dimension, colors)
+    lista_clusters_single, Z_single = ejecutar_metodos_s_c_a(lista_clusters_single, Z_single, dimension, colors)
     print("-----------------------------------------------------------------------------------")
-    lista_clusters_complete = ejecutar_metodos_s_c_a(lista_clusters_complete, Z_complete, dimension, colors)
+    lista_clusters_complete, Z_complete = ejecutar_metodos_s_c_a(lista_clusters_complete, Z_complete, dimension, colors)
     print("-----------------------------------------------------------------------------------")
-    lista_clusters_average = ejecutar_metodos_s_c_a(lista_clusters_average, Z_average, dimension, colors)
+    lista_clusters_average, Z_average = ejecutar_metodos_s_c_a(lista_clusters_average, Z_average, dimension, colors)
 
     #dibujar_clusters(lista_clusters_single.contenedor)
     #dibujar_clusters(lista_clusters_complete.contenedor)
@@ -242,9 +277,22 @@ def main():
 
     print("Ingrese la cantidad de clusters a mostrar: ")
     tamanio_deseado = int(input())
-    graficar_clusters(tamanio_inicial_clusters, tamanio_deseado, lista_clusters_single.contenedor)
-    graficar_clusters(tamanio_inicial_clusters, tamanio_deseado, lista_clusters_complete.contenedor)
-    graficar_clusters(tamanio_inicial_clusters, tamanio_deseado, lista_clusters_average.contenedor)
+    graficar_cantidad_clusters(tamanio_inicial_clusters, tamanio_deseado, lista_clusters_single.contenedor)
+    graficar_cantidad_clusters(tamanio_inicial_clusters, tamanio_deseado, lista_clusters_complete.contenedor)
+    graficar_cantidad_clusters(tamanio_inicial_clusters, tamanio_deseado, lista_clusters_average.contenedor)
+
+    print("Ingrese la cantidad máxima de elementos en un cluster: ")
+    cantidad_elementos = int(input())
+    graficar_cantidad_elementos(cantidad_elementos, lista_clusters_single.contenedor)
+    graficar_cantidad_elementos(cantidad_elementos, lista_clusters_complete.contenedor)
+    graficar_cantidad_elementos(cantidad_elementos, lista_clusters_average.contenedor)
+
+    print("Graficar Dendograma")
+    graficar_dendograma(Z_single)
+    graficar_dendograma(Z_complete)
+    graficar_dendograma(Z_average)
+
+
 
 
 main()

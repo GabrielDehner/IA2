@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71dee0b6-2b26-4264-8803-9cabb81ae59d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Clases2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controller2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +14,7 @@
     <SUITE FILE_PATH="coverage/IA2TP$Controller.coverage" NAME="Controller Coverage Results" MODIFIED="1536114762124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$VisualController.coverage" NAME="VisualController Coverage Results" MODIFIED="1537147904546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clustering.coverage" NAME="clustering Coverage Results" MODIFIED="1536029929468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IA2TP$Controller2.coverage" NAME="Controller2 Coverage Results" MODIFIED="1537931097076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IA2TP$Controller2.coverage" NAME="Controller2 Coverage Results" MODIFIED="1537936748153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$pruebas.coverage" NAME="pruebas Coverage Results" MODIFIED="1535938883213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clusteringMethods.coverage" NAME="clusteringMethods Coverage Results" MODIFIED="1536114553966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IA2TP$clusJerarquicoPrueba.coverage" NAME="clusJerarquicoPrueba Coverage Results" MODIFIED="1536110778089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -53,13 +51,13 @@
         <counts>
           <entry key="Python Console" value="49" />
           <entry key="dummy" value="8" />
-          <entry key="py" value="15968" />
+          <entry key="py" value="16500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="16017" />
+          <entry key="Python" value="16549" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -71,12 +69,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controller2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+            <state relative-caret-position="112">
+              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1537931039728" expanded="true" signature="5140:6599" ph="..." />
-                <marker date="1537931039728" expanded="true" signature="5140:6618" ph="..." />
+                <marker date="1537936746747" expanded="true" signature="5152:6615" ph="..." />
+                <marker date="1537936746747" expanded="true" signature="7067:7068" ph="..." />
+                <marker date="1537936746747" expanded="true" signature="7126:7385" ph="..." />
+                <marker date="1537936746747" expanded="true" signature="7126:7407" ph="..." />
               </folding>
             </state>
           </provider>
@@ -343,7 +343,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17145015" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" x="1" y="105" width="1364" height="636" id="SciView" order="3" type="WINDOWED" weight="0.35725075" />
+      <window_info content_ui="combo" x="1" y="113" width="1364" height="628" id="SciView" order="3" type="WINDOWED" visible="true" weight="0.35725075" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924242" visible="true" weight="0.37925446" />
@@ -476,12 +476,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+        <state relative-caret-position="112">
+          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1537931039728" expanded="true" signature="5140:6599" ph="..." />
-            <marker date="1537931039728" expanded="true" signature="5140:6618" ph="..." />
+            <marker date="1537936746747" expanded="true" signature="5152:6615" ph="..." />
+            <marker date="1537936746747" expanded="true" signature="7067:7068" ph="..." />
+            <marker date="1537936746747" expanded="true" signature="7126:7385" ph="..." />
+            <marker date="1537936746747" expanded="true" signature="7126:7407" ph="..." />
           </folding>
         </state>
       </provider>
