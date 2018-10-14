@@ -11,6 +11,7 @@ from pylab import *
 
 import sys
 from PyQt5 import uic, QtWidgets
+from PyQt5.QtWidgets import QTableWidgetItem
 
 
 
@@ -267,6 +268,32 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def importarCSV(self):
         self.ruta, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Importar CSV')
         self.lblArchivo.setText("Archivo: "+self.ruta)
+        #self.tableCSV
+
+        datos = open(self.ruta, "r")
+        datos_csv = csv.reader(datos)
+        filas = 0
+        columnas = 0
+        matriz_vista = []
+        i=0
+        for almacen in datos_csv:
+            filas += 1
+            columnas = len(almacen)
+            matriz_vista.append([0]*columnas)
+            matriz_vista[i] = almacen
+            i+=1
+        self.tableCSV.setRowCount(filas)
+        self.tableCSV.setColumnCount(columnas)
+        for i in range(len(matriz_vista)):
+            for j in range(len(matriz_vista[i])):
+                self.tableCSV.setItem(i, j, QTableWidgetItem(matriz_vista[i][j]))
+
+        #self.tableCSV.setItem(0, 0, QTableWidgetItem("algo"))
+
+
+
+
+
 
     def main(self):
         if(self.ruta!= "" and (self.checkElementosMaximos.checkState() or self.checkCantidadClusters.checkState() or self.checkDendograma.checkState())):
