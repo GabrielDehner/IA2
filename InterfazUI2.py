@@ -306,6 +306,23 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def importarCSV(self):
+        global lista_clusters_single
+        global lista_clusters_complete
+        global lista_clusters_average
+        global Z_single
+        global Z_complete
+        global Z_average
+        global tamanio_inicial_clusters
+
+
+        lista_clusters_single = ''
+        lista_clusters_complete = ''
+        lista_clusters_average = ''
+        Z_single = []
+        Z_complete = []
+        Z_average = []
+        tamanio_inicial_clusters = ''
+
         self.ruta, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Importar CSV')
         self.lblArchivo.setText("Archivo: "+self.ruta)
         #self.tableCSV
