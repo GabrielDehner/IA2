@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>516</width>
+    <width>610</width>
     <height>413</height>
    </rect>
   </property>
@@ -20,7 +20,7 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>360</x>
       <y>70</y>
       <width>241</width>
       <height>261</height>
@@ -82,7 +82,7 @@
        </item>
        <item>
         <property name="text">
-         <string>Minkouski</string>
+         <string>Chebychev</string>
         </property>
        </item>
       </widget>
@@ -119,7 +119,7 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>510</x>
       <y>360</y>
       <width>91</width>
       <height>31</height>
@@ -146,7 +146,7 @@
      <rect>
       <x>20</x>
       <y>70</y>
-      <width>211</width>
+      <width>311</width>
       <height>261</height>
      </rect>
     </property>
@@ -168,7 +168,7 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>461</width>
+      <width>581</width>
       <height>49</height>
      </rect>
     </property>
